@@ -1,0 +1,17 @@
+[theme]
+base = "dark"
+primaryColor = "#e2b04e"
+backgroundColor = "#050b08"
+secondaryBackgroundColor = "#14110b"
+textColor = "#efe3c4"
+linkColor = "#f6d98a"
+
+[client]
+toolbarMode = "minimal"
+showErrorDetails = true
+
+[server]
+runOnSave = false
+
+[browser]
+gatherUsageStats = false
