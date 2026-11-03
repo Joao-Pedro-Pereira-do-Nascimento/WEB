@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Uno Folclóuno - dados locais e credenciais
+.data/
+*serviceAccount*.json
+*service-account*.json
+*firebase-adminsdk*.json
+firebase-key*.json
+client_secret*.json
