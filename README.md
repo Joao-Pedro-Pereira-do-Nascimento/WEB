@@ -1,5 +1,9 @@
 # UNO FOLCLÓUNO
 
+### Jogue agora: **[uno-folclouno.streamlit.app](https://uno-folclouno.streamlit.app/)**
+
+![Tela inicial do Uno Folclóuno](docs/img/00-capa.jpg)
+
 Jogo de cartas **online e multijogador** no estilo UNO, feito em **Streamlit**, em que as cartas são
 personagens do **folclore brasileiro**: Saci, Curupira, Cuca, Iara, Mula sem Cabeça, Boto, Boitatá e outros.
 Toda a arte (cartas, logo animado, ícones, avatares e favicon) é **SVG original gerado em código** — sem
@@ -9,12 +13,108 @@ vaga-lumes e luz de tocha. Funciona igual no celular e no computador.
 
 - 2 a 6 jogadores por sala (complete com **bots**)
 - Sala com **código de 5 letras**: cada pessoa entra pelo próprio celular/computador com o próprio nome
+- **Contas** com usuário e senha ou **login com Google** (ou jogue como convidado, sem cadastro)
 - **Reconexão**: recarregou a página ou trocou de aparelho? O **link de reconexão** devolve o mesmo lugar e as mesmas cartas
 - Atualização em tempo real (a mesa é relida a cada ~1 s)
-- **Ranking** persistente por nome de jogador
+- **Ranking global** salvo no Firebase Realtime Database
 - **Bestiário** com todas as cartas e as lendas de cada personagem
 
-## Início rápido
+| Link | |
+|---|---|
+| Aplicação online | https://uno-folclouno.streamlit.app/ |
+| Código-fonte | https://github.com/Joao-Pedro-Pereira-do-Nascimento/WEB |
+
+---
+
+## Como jogar (passo a passo)
+
+### 1. Entre na sua conta
+
+Abra **https://uno-folclouno.streamlit.app/**. Na caixa **Sua conta** há três jeitos de entrar:
+
+- **Entrar**: usuário e senha de uma conta que você já criou;
+- **Entrar com Google**: usa a sua conta Google, sem criar senha;
+- **Jogar como convidado**: entra direto, só digitando um nome (não fica salvo na conta).
+
+<img src="docs/img/01-login.png" alt="Caixa de login" width="420">
+
+### 2. Ou crie uma conta
+
+Clique em **Criar conta**, escolha um **usuário** (é o seu nome no jogo e no ranking), a **data de nascimento**
+(serve para recuperar a senha em **Esqueci a senha**) e uma **senha** de pelo menos 6 caracteres.
+Você continua logado neste navegador por 30 dias; **Sair** fica no canto superior direito.
+
+<img src="docs/img/02-criar-conta.png" alt="Criar conta" width="420">
+
+### 3. Crie uma sala
+
+Na aba **Jogar**, escolha o seu **personagem** do folclore, dê um **nome para a sala** (ou clique em **Sortear**),
+escolha quantos **bots** quer e clique em **Criar sala**.
+
+![Criar sala ou entrar numa sala](docs/img/03-inicio.jpg)
+
+### 4. Chame os amigos
+
+A sala ganha um **código de 5 letras**. Use **Copiar código** ou **Copiar convite** (link pronto) e mande para
+os amigos. Como anfitrião, você escolhe **Como vencer** (rodada única ou 100/200/500 pontos), pode **Adicionar bot**
+e clica em **Começar partida!** quando tiver pelo menos 2 jogadores.
+
+![Sala de espera](docs/img/04-sala-de-espera.jpg)
+
+Quem foi convidado abre o app, digita o código em **Entrar numa sala** (ou usa **Colar**), escolhe o personagem e
+clica em **Entrar**. Quem abre pelo link de convite já encontra o código preenchido.
+
+![Entrar numa sala pelo código](docs/img/05-entrar-por-codigo.jpg)
+
+### 5. Na mesa
+
+No meio ficam o **monte** (para comprar) e o **descarte** (a carta da vez). Em cima, os adversários e quantas cartas
+cada um tem; à direita, o **placar** e os **acontecimentos** da partida.
+
+![Mesa de jogo](docs/img/06-mesa.jpg)
+
+### 6. Na sua vez
+
+Quando aparecer **SUA VEZ!**, as cartas que **brilham** na sua mão podem ser jogadas (mesma cor, mesmo número ou
+mesmo símbolo, ou um coringa). Clique na carta para jogar. Sem jogada, clique em **Comprar carta**: se a carta
+comprada servir, você pode jogá-la; se não, clique em **Passar a vez**.
+
+![Sua vez: cartas que brilham podem ser jogadas](docs/img/07-sua-vez.jpg)
+
+- **Coringa (Iara) e +4 (Mula sem Cabeça):** depois de jogar, escolha a nova cor.
+- **UNO!:** ao ficar com 1 carta, clique em **UNO!**. Se esquecer, os outros podem **denunciar** e você compra 2.
+- **Desafiar +4:** se jogarem um +4 em você, dá para **Aceitar** ou **Desafiar** (veja as regras abaixo).
+- **Jogar automático:** se precisar sair um pouco, o app joga por você com a IA dos bots.
+- Passe o mouse (ou segure o dedo, no celular) sobre uma carta para vê-la ampliada.
+
+### 7. Fim de jogo
+
+Quem ficar sem cartas primeiro vence e leva os pontos das cartas que sobraram com os outros. Clique em
+**Nova partida (voltar à sala)** para jogar de novo com o mesmo grupo.
+
+![Vitória e fim de jogo](docs/img/09-fim-de-partida.jpg)
+
+### 8. Bestiário, Ranking e Regras
+
+- **Bestiário:** todas as cartas com a lenda de cada personagem.
+- **Ranking:** vitórias, partidas, pontos e mais de todos os jogadores (os bots não entram).
+- **Regras:** o resumo das regras dentro do próprio jogo.
+
+![Bestiário](docs/img/10-bestiario.jpg)
+
+![Ranking](docs/img/11-ranking.jpg)
+
+### No celular
+
+O mesmo endereço funciona no celular, com a tela adaptada para toque.
+
+<img src="docs/img/13-celular.jpg" alt="Uno Folclóuno no celular" width="300">
+
+---
+
+## Rodar no seu computador (início rápido)
+
+Requer Python 3.10+ (testado em 3.12 e 3.14).
 
 ```bash
 git clone https://github.com/Joao-Pedro-Pereira-do-Nascimento/WEB.git
@@ -25,8 +125,12 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Abra **http://localhost:8501** no navegador, digite seu nome, crie uma sala e passe o código de 5 letras
-para os amigos (ou adicione bots). Funciona sem configurar nada: sem Firebase, os dados ficam na pasta `.data/`.
+Abra **http://localhost:8501** no navegador, crie uma sala e passe o código de 5 letras para os amigos (ou
+adicione bots). Para testar sozinho, abra outra aba (ou uma janela anônima) e entre com outro nome.
+
+Funciona sem configurar nada: sem Firebase, os dados ficam em arquivos JSON na pasta `.data/` (com trava de
+arquivo, funciona com várias abas e vários aparelhos acessando o mesmo servidor). Para os testes, instale
+`requirements-dev.txt` (veja **Testes**).
 Detalhes (rede local, Firebase, login com Google, deploy e testes) nas seções abaixo.
 
 ---
@@ -116,23 +220,6 @@ UNO!, denúncia, desafio, "sua vez", embaralhar, distribuir, portal, chegada e s
 Há **Silenciar sons** e **Testar som** no topo. *Os navegadores só liberam áudio depois do primeiro clique.*
 
 ---
-
-## Rodar no computador
-
-Requer Python 3.10+ (testado em 3.14).
-
-```bash
-python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\Scripts\activate
-pip install -r requirements-dev.txt
-streamlit run app.py
-```
-
-Abra http://localhost:8501, crie uma sala e passe o código. Para testar sozinho, abra outra aba
-(ou uma janela anônima) e entre com outro nome — ou adicione bots.
-
-Sem Firebase configurado, os dados ficam em arquivos JSON na pasta `.data/` (com trava de arquivo,
-funciona com várias abas e vários aparelhos acessando o mesmo servidor).
 
 ## Jogar na rede local (LAN)
 
@@ -257,6 +344,8 @@ A conta Google vira um usuário com o nome do Google (dá para editar em **Conta
 
 ## Publicar no Streamlit Community Cloud
 
+O app oficial está em **https://uno-folclouno.streamlit.app/**. Para publicar a sua própria cópia:
+
 1. Suba o repositório para o GitHub (sem `secrets.toml`, sem `.data/`, sem o JSON da conta de serviço).
 2. Em https://share.streamlit.io > **Create app** > escolha o repositório, branch e `app.py`.
 3. Em **Advanced settings**, escolha **Python 3.12** (versão mais testada pelos pacotes do Google/Firebase
@@ -314,6 +403,7 @@ ui/effects.py           # animações (uma vez por evento), sons e visualizaçã
 ui/duels.py             # duelo de biomas (16 combinações)
 ui/styles.py            # CSS e keyframes
 assets/favicon.svg|png  # ícone da página (gerado por tools/make_favicon.py)
+docs/img/               # capturas de tela usadas neste README
 tests/                  # pytest
 .streamlit/config.toml  # tema
 .streamlit/secrets.toml.example
