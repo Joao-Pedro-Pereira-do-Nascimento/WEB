@@ -1211,6 +1211,9 @@ def bestiary_tab() -> None:
         st.markdown("| Carta | Personagem | Quantidade |\n|---|---|---|\n" + "\n".join(rows))
 
 
+# fragmento próprio: a mesa só redesenha o fragmento dela, então sem isto o ranking
+# ficava parado até a página inteira recarregar (ex.: não mostrava a partida que acabou)
+@st.fragment(run_every=float(os.environ.get("UNO_RANK_POLL", 15)))
 def ranking_tab() -> None:
     st.markdown("### Ranking")
     be = backend()
